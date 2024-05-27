@@ -1,0 +1,14 @@
+---
+- name: Testing andrewrothstein.act role
+  hosts: all
+  tasks:
+    - name: Installing andrewrothstein.act
+      ansible.builtin.include_role:
+        name: '{{ playbook_dir }}'
+    - name: Executing 'act --version'
+      ansible.builtin.command: act --version
+      changed_when: false
+      register: 'act_test_output'
+    - name: Output from 'act --version'
+      ansible.builtin.debug:
+        msg: '{{ act_test_output.stdout }}'

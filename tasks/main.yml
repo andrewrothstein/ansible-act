@@ -1,0 +1,60 @@
+---
+- name: Resolve platform specific vars
+  ansible.builtin.include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+- name: Check for install at {{ act_install_exe }}
+  become: true
+  ansible.builtin.stat:
+    path: '{{ act_install_exe }}'
+  changed_when: false
+  register: act_binary
+- name: Downloading and installing act
+  when: not act_binary.stat.exists
+  block:
+    - name: Downloading {{ act_url }} to {{ act_tmp_archive }}
+      become: true
+      become_user: root
+      ansible.builtin.get_url:
+        url: '{{ act_url }}'
+        dest: '{{ act_tmp_archive }}'
+        mode: '644'
+        checksum: '{{ act_checksum }}'
+    - name: Installing andrewrothstein.unarchivedeps
+      ansible.builtin.include_role:
+        name: andrewrothstein.unarchivedeps
+    - name: Mkdir {{ act_install_dir }}
+      become: true
+      become_user: root
+      ansible.builtin.file:
+        name: '{{ act_install_dir }}'
+        state: directory
+        mode: '755'
+    - name: Unarchiving {{ act_tmp_archive }} to {{ act_install_dir }}
+      become: true
+      become_user: root
+      ansible.builtin.unarchive:
+        remote_src: true
+        src: '{{ act_tmp_archive }}'
+        dest: '{{ act_install_dir }}'
+        creates: '{{ act_install_exe }}'
+  always:
+    - name: Rm {{ act_tmp_archive }}
+      become: true
+      become_user: root
+      ansible.builtin.file:
+        path: '{{ act_tmp_archive }}'
+        state: absent
+- name: Linking {{ act_link }} to {{ act_install_exe }}
+  become: true
+  become_user: root
+  ansible.builtin.file:
+    src: '{{ act_install_exe }}'
+    dest: '{{ act_link }}'
+    state: link

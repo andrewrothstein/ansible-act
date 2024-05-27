@@ -1,0 +1,13 @@
+---
+# vars file for act
+act_os: '{{ ansible_system }}'
+act_arch: '{{ ansible_architecture }}'
+act_platform: '{{ act_os }}_{{ act_arch }}'
+act_url: '{{ act_mirror }}/v{{ act_ver }}/act_{{ act_platform }}.{{ act_archive_type | default("tar.gz") }}'
+act_name: act_{{ act_ver }}_{{ act_platform }}
+act_archive: '{{ act_name }}.{{ act_archive_type | default("tar.gz") }}'
+act_tmp_archive: '{{ act_tmp_dir | default("/tmp") }}/{{ act_archive }}'
+act_checksum: '{{ act_checksums[act_ver][act_platform] }}'
+act_install_dir: '{{ act_parent_install_dir }}/{{ act_name }}'
+act_install_exe: '{{ act_install_dir }}/act'
+act_link: '{{ act_parent_install_dir }}/bin/act'
