@@ -3,6 +3,11 @@
 act_ver: 0.2.87
 act_mirror: https://github.com/nektos/act/releases/download
 act_parent_install_dir: /usr/local
+act_arch_map:
+  x86_32: i386
+  x86_64: x86_64
+  aarch64: arm64
+  arm64: arm64
 act_checksums:
   # https://github.com/nektos/act/releases/download/v0.2.62/checksums.txt
   '0.2.62':
