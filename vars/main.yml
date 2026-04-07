@@ -1,7 +1,7 @@
 ---
 # vars file for act
-act_os: '{{ ansible_system }}'
-act_arch: '{{ ansible_architecture }}'
+act_os: '{{ ansible_facts["system"] }}'
+act_arch: '{{ ansible_facts["architecture"] }}'
 act_platform: '{{ act_os }}_{{ act_arch }}'
 act_url: '{{ act_mirror }}/v{{ act_ver }}/act_{{ act_platform }}.{{ act_archive_type | default("tar.gz") }}'
 act_name: act_{{ act_ver }}_{{ act_platform }}
