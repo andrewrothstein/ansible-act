@@ -1,6 +1,6 @@
 ---
 # defaults file for act
-act_ver: 0.2.87
+act_ver: 0.2.89
 act_mirror: https://github.com/nektos/act/releases/download
 act_parent_install_dir: /usr/local
 act_arch_map:
@@ -631,3 +631,25 @@ act_checksums:
     Windows_i386: sha256:0528ec2fc8b0c1fff74f4656163e262aef34270cd7a015e8d385a8e80ea1a597
     # https://github.com/nektos/act/releases/download/v0.2.87/act_Windows_x86_64.zip
     Windows_x86_64: sha256:bb7c654b27d79fb98947e22ff846408ef8f93aab90dba6af3656b503b8811966
+  # https://github.com/nektos/act/releases/download/v0.2.89/checksums.txt
+  '0.2.89':
+    # https://github.com/nektos/act/releases/download/v0.2.89/act_Darwin_arm64.tar.gz
+    Darwin_arm64: sha256:48ae218af96725f7635a66de2b87e1e346893b02add0f16b92f560296b2151fc
+    # https://github.com/nektos/act/releases/download/v0.2.89/act_Darwin_x86_64.tar.gz
+    Darwin_x86_64: sha256:41b31488e7c254baec31cce12c7dade3e35973b8a31b9486206ad43f233d814e
+    # https://github.com/nektos/act/releases/download/v0.2.89/act_Linux_arm64.tar.gz
+    Linux_arm64: sha256:daa8679ba9615a74d2d0cec321dc593f21948a2a11bb65862b063d8b930f4bcb
+    # https://github.com/nektos/act/releases/download/v0.2.89/act_Linux_armv6.tar.gz
+    Linux_armv6: sha256:11a826255a78bbe5ac25fca5f4c5fae96f651f2cfda460d240a79a21f884fbbf
+    # https://github.com/nektos/act/releases/download/v0.2.89/act_Linux_armv7.tar.gz
+    Linux_armv7: sha256:50c65e5034a9a065b8937d2d9e3ad9418311d4f26348a8b9047f2190c89ccdc4
+    # https://github.com/nektos/act/releases/download/v0.2.89/act_Linux_i386.tar.gz
+    Linux_i386: sha256:d1bdc91e33b94a86f078d90c32079660e0349ac8f56a94e23238a578b0cdb0f6
+    # https://github.com/nektos/act/releases/download/v0.2.89/act_Linux_x86_64.tar.gz
+    Linux_x86_64: sha256:0191d6f1f3b716b5c55820032605d05fc3c1cdbf581ebeff655019e5dd1524c0
+    # https://github.com/nektos/act/releases/download/v0.2.89/act_Windows_arm64.zip
+    Windows_arm64: sha256:bb8121d304c3a78ba172cc45b789fd2555e7638a15b0da12d7057319159409d7
+    # https://github.com/nektos/act/releases/download/v0.2.89/act_Windows_i386.zip
+    Windows_i386: sha256:69fcbc38e7fb41c62bf568e77a13a146c26719c402b07be857488aca59c4232b
+    # https://github.com/nektos/act/releases/download/v0.2.89/act_Windows_x86_64.zip
+    Windows_x86_64: sha256:0f8cf866ad7e32421a219fc551a0a0ea5d12ead464de12ebfeafd334a5973b50
