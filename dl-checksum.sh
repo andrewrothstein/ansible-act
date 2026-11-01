@@ -19,7 +19,7 @@ dl()
     local url=$MIRROR/v$ver/$file
     printf "    # %s\n" $url
     local sum
-    sum=$(grep -F -- "  $file" "$lchecksum" | awk '{print $1}')
+    sum=$(awk -v f="$file" '$2 == f {print $1}' "$lchecksum")
     if ! printf '%s' "$sum" | grep -Eq '^[0-9a-f]{64}$'; then
         echo "bad or missing checksum for $file" >&2
         exit 1
@@ -51,4 +51,4 @@ dl_ver () {
     dl $lchecksum $ver Windows x86_64 zip
 }
 
-dl_ver ${1:-0.2.89}
+dl_ver ${1:-0.2.94}
