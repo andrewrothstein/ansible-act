@@ -51,6 +51,6 @@ dl_ver () {
     dl $lchecksum $ver Windows x86_64 zip
 }
 
-for v in "${@:-0.2.96}"; do
+for v in "${@:-0.2.97}"; do
     dl_ver "$v"
 done
